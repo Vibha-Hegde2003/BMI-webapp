@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Results</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 20px;
+            padding: 0;
+            background-color: darksalmon;
+        }
+        .form-container {
+            background-color: white; /* Adds a white background */
+            padding: 20px;
+            margin: 50px auto;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Optional shadow for better appearance */
+        }
+    </style>
+</head>
+<body>
+    <div class ="form-container">
+    <h1>Your BMI Results</h1>
+    <p><strong>BMI:</strong> {{ bmi }}</p>
+    <p><strong>Category:</strong> {{ category }}</p>
+
+    <h2>Health Tips</h2>
+    {% if category == "Underweight" %}
+    <p><strong>Health Implications:</strong> Risk of nutrient deficiencies, weakened immune system, fatigue, and potential underlying health issues.</p>
+    <p><strong>Tips to Improve Health:</strong></p>
+    <ul>
+        <li>Diet: Focus on nutrient-dense, calorie-rich foods like nuts, avocados, whole grains, and lean proteins.</li>
+        <li>Exercise: Include resistance training to build muscle mass.</li>
+        <li>Lifestyle: Eat smaller, frequent meals and avoid skipping meals. Ensure adequate sleep and consult a doctor for potential underlying conditions.</li>
+    </ul>
+    {% elif category == "Normal weight" %}
+    <p><strong>Health Implications:</strong> Generally considered healthy; lower risk of weight-related diseases.</p>
+    <p><strong>Tips to Maintain Health:</strong></p>
+    <ul>
+        <li>Diet: Maintain a balanced diet with fruits, vegetables, lean proteins, and healthy fats.</li>
+        <li>Exercise: Regular physical activity such as 150 minutes of moderate exercise per week.</li>
+        <li>Lifestyle: Stay hydrated, manage stress, and monitor weight periodically.</li>
+    </ul>
+    {% elif category == "Overweight" %}
+    <p><strong>Health Implications:</strong> Increased risk of cardiovascular diseases, diabetes, and joint issues.</p>
+    <p><strong>Tips to Improve Health:</strong></p>
+    <ul>
+        <li>Diet: Adopt portion control, reduce sugary and processed foods, and increase fiber intake.</li>
+        <li>Exercise: Engage in regular cardio (like walking, running, or cycling) and strength training.</li>
+        <li>Lifestyle: Develop a consistent meal plan, avoid late-night snacking, and monitor progress.</li>
+    </ul>
+    {% elif category == "Obesity" %}
+    <p><strong>Health Implications:</strong> Higher risk of heart disease, diabetes, sleep apnea, and certain cancers.</p>
+    <p><strong>Tips to Improve Health:</strong></p>
+    <ul>
+        <li>Diet: Work with a dietitian to create a calorie-controlled meal plan focused on whole foods.</li>
+        <li>Exercise: Start with low-impact activities like swimming or walking, gradually increasing intensity.</li>
+        <li>Lifestyle: Set realistic weight-loss goals, seek support from health professionals, and address emotional eating.</li>
+    </ul>
+    {% else %}
+    <p>No tips available for this category.</p>
+    {% endif %}
+</div>
+</body>
+</html>
